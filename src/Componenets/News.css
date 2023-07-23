@@ -1,0 +1,29 @@
+form{
+    width: 100%;
+
+}
+.query-input{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size:1.2rem ;
+    border: 20x solid black;
+    color: black;
+}
+.btn-submit{
+    margin-bottom: 20px;
+    padding: 10px 60px;
+    border-radius: 15px;
+    font-size: 100%;
+    background-color: rgb(245, 235, 235);
+    
+}
+.btn-submit:hover{
+    background-color: rgb(211, 211, 211);
+    cursor: pointer;
+}
+.news{
+    width: 80%;
+    margin-inline:auto;
+    margin-block: 40px;
+}
