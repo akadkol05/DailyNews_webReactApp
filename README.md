@@ -1,3 +1,9 @@
+![image](https://github.com/akadkol05/DailyNews_webReactApp/assets/81400895/78bc4206-b07b-45fe-9241-25bb9703980d)
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
