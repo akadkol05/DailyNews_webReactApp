@@ -9,8 +9,17 @@ function News() {
   const [newsList, setNewsList] = useState([]);
   const [query, setQuery]=useState('tesla');
   const queryRef=useRef(null);
+  const currentDate = new Date();
+const year = currentDate.getFullYear();
+const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+const day = String(currentDate.getDate()).padStart(2, '0');
 
-  const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=2023-06-23&sortBy=publishedAt&apiKey=${apiKey}`;
+const formattedDate = `${year}-${month}-${day}`;
+
+console.log(formattedDate); // Output: "2023-06-24"
+
+
+  const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=${formattedDate.toString}&sortBy=publishedAt&apiKey=${apiKey}`;
 
 
   useEffect(() => {
@@ -21,6 +30,7 @@ function News() {
     try {
       const response = await fetch(apiUrl);
       const jsonData = await response.json();
+      console.log(jsonData);
       setNewsList(jsonData.articles);
     } catch (error) {
       console.log(error, "error occurd");
@@ -37,8 +47,8 @@ function News() {
     <div className="news">
         <h1 style={{fontFamily:'monospace',fontSize:'3rem',textAlign:'left',marginBottom:'20px'} }>News Daily</h1>
         <form onSubmit={handleSubmit}>
-            <input  placeholder='Search here..' className="query-input" type="text" ref={queryRef}/>
-            <input className="btn-submit" onClick={handleSubmit} type="submit" value="Submit" />
+            <input  placeholder='Search here..' className="query-input" type="text" ref={queryRef}></input>
+            <input className="btn-submit" onClick={handleSubmit} type="submit" value="Submit"></input>
         </form>
 
       <div
@@ -49,7 +59,7 @@ function News() {
           rowGap: "20px",
         }}>
         {newsList.map((news) => {
-          return <NewsApp key={news.url} news={news} />;
+          return <NewsApp key={news.url} news={news}></NewsApp>;
         })}
       </div>
     </div>
